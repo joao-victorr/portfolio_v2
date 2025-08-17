@@ -45,20 +45,16 @@ const About = () => {
           {/* Left side - Description */}
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Meu nome é <span className="text-primary font-semibold">João Victor Rodrigues</span> e eu sou um 
-              apaixonado por tecnologia que decidiu trilhar o caminho da programação.
-            </p>
-            
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Atualmente estou cursando <span className="text-primary font-semibold">Análise e Desenvolvimento de Sistemas (ADS)</span> e 
-              focando no desenvolvimento FullStack, sempre buscando aprender novas tecnologias 
-              e metodologias para criar soluções inovadoras.
+              Meu nome é <span className="text-primary font-semibold">João Victor Rodrigues</span>, recém-formado em 
+              <span className="text-primary font-semibold"> Análise e Desenvolvimento de Sistemas</span>, e apaixonado por tecnologia.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Tenho paixão por transformar ideias em código e criar experiências digitais 
-              que fazem a diferença na vida das pessoas. Estou sempre em busca de novos 
-              desafios e oportunidades para crescer profissionalmente.
+              Desenvolvo soluções Full-Stack com <span className="text-primary font-semibold">JavaScript/TypeScript</span>, criando interfaces modernas com React e APIs escaláveis com Fastify.
+            </p>
+
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Com experiência em redes, Docker e SQL, busco transformar ideias em aplicações bem estruturadas e impactantes, sempre em busca de novos desafios.
             </p>
 
             <div className="flex items-center gap-4 pt-4">

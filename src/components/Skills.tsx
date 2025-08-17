@@ -1,33 +1,64 @@
+import { GitBranch, Globe, Lock, Server } from "lucide-react";
+import { SiCss3, SiDbeaver, SiDocker, SiExpress, SiFastify, 
+  SiGit, SiGrafana, SiHtml5, SiJavascript, SiK6, 
+  SiLinux, SiMysql,SiNginx,
+  SiNodedotjs, SiPostgresql, SiPostman, SiPrisma, SiProxmox, 
+  SiReact, SiTailwindcss,SiTypescript 
+} from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 
 const Skills = () => {
   const skillCategories = [
     {
+      id: crypto.randomUUID(),
       title: "Frontend",
+      description: "Criação de interfaces modernas e responsivas",
       skills: [
-        { name: "React", level: 85, icon: "⚛️" },
-        { name: "TypeScript", level: 80, icon: "🔷" },
-        { name: "HTML/CSS", level: 90, icon: "🌐" },
-        { name: "JavaScript", level: 85, icon: "🟡" }
+        { id: crypto.randomUUID(), name: "React", icon: SiReact },
+        { id: crypto.randomUUID(), name: "TypeScript", icon: SiTypescript },
+        { id: crypto.randomUUID(), name: "HTML5", icon: SiHtml5 },
+        { id: crypto.randomUUID(), name: "CSS3", icon: SiCss3 },
+        { id: crypto.randomUUID(), name: "JavaScript", icon: SiJavascript },
+        { id: crypto.randomUUID(), name: "Tailwind CSS", icon: SiTailwindcss }
       ]
     },
     {
+      id: crypto.randomUUID(),
       title: "Backend",
+      description: "Desenvolvimento de APIs robustas e escaláveis",
       skills: [
-        { name: "Node.js", level: 80, icon: "🟢" },
-        { name: "MongoDB", level: 75, icon: "🍃" },
-        { name: "SQL", level: 70, icon: "🗄️" },
-        { name: "Docker", level: 65, icon: "🐳" }
+        { id: crypto.randomUUID(), name: "Node.js", icon: SiNodedotjs },
+        { id: crypto.randomUUID(), name: "Fastify", icon: SiFastify },
+        { id: crypto.randomUUID(), name: "Express.js", icon: SiExpress },
+        { id: crypto.randomUUID(), name: "Prisma ORM", icon: SiPrisma },
+        { id: crypto.randomUUID(), name: "PostgreSQL", icon: SiPostgresql },
+        { id: crypto.randomUUID(), name: "MySQL", icon: SiMysql },
+        // { id: crypto.randomUUID(), name: "SQL Server", icon: SiMicrosoftsqlserver }
       ]
     },
     {
-      title: "Ferramentas",
+      id: crypto.randomUUID(),
+      title: "Infraestrutura",
+      description: "Gestão completa de servidores e ambientes",
       skills: [
-        { name: "Git", level: 85, icon: "📚" },
-        { name: "VS Code", level: 90, icon: "💻" },
-        { name: "Figma", level: 70, icon: "🎨" },
-        { name: "Linux", level: 75, icon: "🐧" }
+        { id: crypto.randomUUID(), name: "Linux Server", icon: SiLinux },
+        // { id: crypto.randomUUID(), name: "Windows Server", icon: SiWindows },
+        { id: crypto.randomUUID(), name: "Docker", icon: SiDocker },
+        { id: crypto.randomUUID(), name: "Proxmox", icon: SiProxmox },
+        { id: crypto.randomUUID(), name: "Nginx", icon: SiNginx },
+        { id: crypto.randomUUID(), name: "SSL/HTTPS", icon: Lock }
+      ]
+    },
+    {
+      id: crypto.randomUUID(),
+      title: "Ferramentas",
+      description: "Tecnologias que otimizam meu workflow",
+      skills: [
+        { id: crypto.randomUUID(), name: "Git", icon: SiGit },
+        { id: crypto.randomUUID(), name: "Grafana", icon: SiGrafana },
+        { id: crypto.randomUUID(), name: "Postman", icon: SiPostman },
+        { id: crypto.randomUUID(), name: "DBeaver", icon: SiDbeaver },
+        { id: crypto.randomUUID(), name: "K6", icon: SiK6 },
       ]
     }
   ];
@@ -43,65 +74,40 @@ const Skills = () => {
           </h2>
           <div className="w-20 h-1 gradient-primary mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tecnologias e ferramentas que utilizo no desenvolvimento de projetos
+            Tecnologias e ferramentas que utilizo na gestão de infraestrutura e desenvolvimento
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="bg-card/50 border-border/50 hover:bg-card/80 transition-smooth shadow-card">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {skillCategories.map((category) => (
+            <Card key={category.id} className="bg-card/50 border-border/50 hover:bg-card/80 transition-smooth shadow-card group">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6 text-primary text-center">
+                <h3 className="text-xl font-semibold mb-2 text-primary text-center">
                   {category.title}
                 </h3>
-                <div className="space-y-6">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">{skill.icon}</span>
-                          <span className="font-medium text-foreground">{skill.name}</span>
-                        </div>
-                        <span className="text-sm text-muted-foreground">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="relative">
-                        <Progress 
-                          value={skill.level} 
-                          className="h-2 bg-secondary"
-                        />
-                        <div 
-                          className="absolute top-0 left-0 h-2 gradient-primary rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
+                <p className="text-sm text-muted-foreground text-center mb-6">
+                  {category.description}
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  {category.skills.map((skill) => (
+                    <div 
+                      key={skill.id} 
+                      className="flex flex-col items-center p-3 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-smooth group-hover:scale-105"
+                    >
+                      {typeof skill.icon === "string" ? (
+                        <span className="text-2xl mb-2">{skill.icon}</span>
+                      ) : (
+                        <skill.icon className="text-2xl mb-2" />
+                      )}
+                      <span className="text-sm font-medium text-center text-foreground">
+                        {skill.name}
+                      </span>
                     </div>
                   ))}
                 </div>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Additional Technologies */}
-        <div className="mt-12 text-center">
-          <h3 className="text-xl font-semibold mb-6 text-foreground">
-            Outras Tecnologias
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "Express.js", "REST APIs", "GraphQL", "JWT", "Webpack", 
-              "Babel", "Sass", "Bootstrap", "Tailwind CSS", "Jest"
-            ].map((tech, index) => (
-              <span
-                key={index}
-                className="px-4 py-2 bg-secondary/50 text-secondary-foreground rounded-full text-sm border border-border/50 hover:bg-secondary transition-smooth hover:scale-105"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>

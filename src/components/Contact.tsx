@@ -1,10 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
+import { SiGithub, SiGmail, SiLinkedin, } from "react-icons/si";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -36,46 +37,46 @@ const Contact = () => {
     {
       icon: <Mail className="h-5 w-5" />,
       title: "Email",
-      value: "joao.victor@email.com",
-      link: "mailto:joao.victor@email.com"
+      value: "joaovictorr.info@gmail.com",
+      link: "mailto:joaovictorr.info@gmail.com"
     },
     {
       icon: <Phone className="h-5 w-5" />,
       title: "Telefone",
-      value: "+55 (11) 99999-9999",
-      link: "tel:+5511999999999"
+      value: "+55 (62) 9 9626-9258",
+      link: "tel:+5562996269258"
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       title: "Localização",
-      value: "São Paulo, SP - Brasil",
+      value: "Goiânia, GO - Brasil",
       link: "#"
     }
   ];
 
   const socialLinks = [
     {
-      icon: <Github className="h-5 w-5" />,
+      icon: <SiGithub className="h-5 w-5" />,
       name: "GitHub",
       url: "https://github.com/joao-victorr",
       color: "hover:text-gray-400"
     },
     {
-      icon: <Linkedin className="h-5 w-5" />,
+      icon: <SiLinkedin className="h-5 w-5" />,
       name: "LinkedIn",
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/joao-victorr",
       color: "hover:text-blue-400"
     },
     {
-      icon: <Mail className="h-5 w-5" />,
+      icon: <SiGmail className="h-5 w-5" />,
       name: "Email",
-      url: "mailto:joao.victor@email.com",
+      url: "mailto:joaovictorr.info@gmail.com",
       color: "hover:text-red-400"
     }
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section className="py-20" id="contact">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -98,52 +99,52 @@ const Contact = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <Label htmlFor="name">Nome</Label>
                   <Input
+                    className="bg-secondary/50 border-border/50 focus:border-primary transition-smooth"
                     id="name"
                     name="name"
-                    value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Seu nome completo"
                     required
-                    className="bg-secondary/50 border-border/50 focus:border-primary transition-smooth"
+                    value={formData.name}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
+                    className="bg-secondary/50 border-border/50 focus:border-primary transition-smooth"
                     id="email"
                     name="email"
-                    type="email"
-                    value={formData.email}
                     onChange={handleInputChange}
                     placeholder="seu.email@exemplo.com"
                     required
-                    className="bg-secondary/50 border-border/50 focus:border-primary transition-smooth"
+                    type="email"
+                    value={formData.email}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Mensagem</Label>
                   <Textarea
+                    className="bg-secondary/50 border-border/50 focus:border-primary transition-smooth resize-none"
                     id="message"
                     name="message"
-                    value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Conte-me sobre seu projeto ou ideia..."
-                    rows={5}
                     required
-                    className="bg-secondary/50 border-border/50 focus:border-primary transition-smooth resize-none"
-                  />
+                    rows={5}
+                    value={formData.message}
+                    />
                 </div>
 
                 <Button
-                  type="submit"
                   className="w-full gradient-primary shadow-glow hover:scale-105 transition-spring"
                   size="lg"
+                  type="submit"
                 >
                   <Send className="h-4 w-4 mr-2" />
                   Enviar Mensagem
@@ -162,16 +163,16 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                {contactInfo.map((item, index) => (
-                  <div key={index} className="flex items-center gap-4">
+                {contactInfo.map((item) => (
+                  <div className="flex items-center gap-4" key={item.title} >
                     <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-primary-foreground">
                       {item.icon}
                     </div>
                     <div>
                       <p className="font-medium text-foreground">{item.title}</p>
                       <a 
-                        href={item.link}
                         className="text-muted-foreground hover:text-primary transition-smooth"
+                        href={item.link}
                       >
                         {item.value}
                       </a>
@@ -190,19 +191,19 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex gap-4">
-                  {socialLinks.map((social, index) => (
+                  {socialLinks.map((social) => (
                     <Button
-                      key={index}
-                      variant="ghost"
-                      size="icon"
-                      className={`hover:scale-110 transition-spring ${social.color}`}
                       asChild
+                      className={`hover:scale-110 transition-spring ${social.color}`}
+                      key={social.name}
+                      size="icon"
+                      variant="ghost"
                     >
                       <a 
-                        href={social.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
                         aria-label={social.name}
+                        href={social.url} 
+                        rel="noopener noreferrer"
+                        target="_blank" 
                       >
                         {social.icon}
                       </a>
@@ -225,9 +226,9 @@ const Contact = () => {
                   Vamos transformar suas ideias em realidade digital!
                 </p>
                 <Button
-                  variant="secondary"
-                  className="bg-white/20 text-white border-white/30 hover:bg-white/30 transition-smooth"
                   asChild
+                  className="bg-white/20 text-white border-white/30 hover:bg-white/30 transition-smooth"
+                  variant="secondary"
                 >
                   <a href="mailto:joao.victor@email.com">
                     Vamos conversar!

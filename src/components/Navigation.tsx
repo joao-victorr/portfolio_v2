@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
@@ -51,20 +51,21 @@ const Navigation = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="text-xl font-bold gradient-primary bg-clip-text text-transparent">
+      <div className="container mx-auto px-6 py-4 ">
+        <div className="flex items-center justify-center md:justify-between">
+          <div className="text-xl font-bold gradient-primary bg-clip-text px-2 hidden md:inline-flex">
             João Victor
           </div>
           
-          <div className="hidden md:flex space-x-8">
+          <div className=" space-x-4 md:flex md:space-x-8">
             {navItems.map((item) => (
               <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-smooth hover:text-primary ${
                   activeSection === item.id ? "text-primary" : "text-muted-foreground"
                 }`}
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                type="button"
               >
                 {item.label}
               </button>
@@ -72,10 +73,10 @@ const Navigation = () => {
           </div>
 
           <Button
-            variant="outline"
-            size="sm"
-            onClick={() => scrollToSection("contact")}
             className="hidden md:inline-flex"
+            onClick={() => scrollToSection("contact")}
+            size="sm"
+            variant="outline"
           >
             Vamos conversar
           </Button>

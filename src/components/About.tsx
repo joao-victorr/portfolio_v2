@@ -1,24 +1,28 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Code, Database, Globe, Zap } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   const highlights = [
     {
+      id: crypto.randomUUID(),
       icon: <Code className="h-8 w-8 text-primary" />,
       title: "FullStack Developer",
       description: "Desenvolvimento completo de aplicações web modernas"
     },
     {
+      id: crypto.randomUUID(),
       icon: <Database className="h-8 w-8 text-primary" />,
       title: "Backend & Database",
       description: "APIs robustas e gerenciamento eficiente de dados"
     },
     {
+      id: crypto.randomUUID(),
       icon: <Globe className="h-8 w-8 text-primary" />,
       title: "Frontend Moderno",
       description: "Interfaces responsivas e experiências intuitivas"
     },
     {
+      id: crypto.randomUUID(),
       icon: <Zap className="h-8 w-8 text-primary" />,
       title: "Performance",
       description: "Otimização e melhores práticas de desenvolvimento"
@@ -26,7 +30,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-secondary/30">
+    <section className="py-20 bg-secondary/30" id="about">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -67,10 +71,10 @@ const About = () => {
 
           {/* Right side - Highlights */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {highlights.map((item, index) => (
+            {highlights.map((item) => (
               <Card 
-                key={index} 
                 className="bg-card/50 border-border/50 hover:bg-card/80 transition-smooth hover:shadow-card hover:scale-105 group"
+                key={item.id} 
               >
                 <CardContent className="p-6 text-center">
                   <div className="mb-4 group-hover:scale-110 transition-spring">

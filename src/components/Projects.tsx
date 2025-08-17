@@ -1,41 +1,45 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { ExternalLink, Globe } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Globe } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Projects = () => {
   const projects = [
     {
+      id: crypto.randomUUID(),
+      title: "Intranet API",
+      description: "Esta é a solução de gerenciamento que une a nossa intranet e o site institucional. Desenvolvida em Node.js + TypeScript, ela oferece uma plataforma segura e eficiente, com autenticação de usuários para acesso controlado às informações.",
+      image: "https://res.cloudinary.com/dn4te44ha/image/upload/v1755412348/Screenshot_from_2025-08-17_03-05-37_lpbbzo.png",
+      technologies: ["TypeScript", "Docker", "Fastify", "PostgreSQL"],
+      liveUrl: "https://souperdomo.perdomodoces.com.br/api/docs",
+      githubUrl: "https://github.com/joao-victorr/intranetBackend",
+      featured: true
+    },
+    {
+      id: crypto.randomUUID(),
       title: "Rocket Coffee",
       description: "Landing page moderna para uma cafeteria, desenvolvida com HTML, CSS e JavaScript. Design responsivo com animações suaves e interface intuitiva.",
-      image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&h=400&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dn4te44ha/image/upload/v1755412466/rocketcoffe_kvtuoh.jpg",
       technologies: ["HTML", "CSS", "JavaScript"],
       liveUrl: "https://joao-victorr.github.io/RocketCoffee/",
       githubUrl: "https://github.com/joao-victorr/RocketCoffee",
-      featured: true
-    },
-    {
-      title: "Calculadora",
-      description: "Aplicação de calculadora funcional com interface limpa e moderna. Implementada com JavaScript vanilla e CSS Grid para layout responsivo.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      liveUrl: "https://calculadora-eta-nine.vercel.app/",
-      githubUrl: "#",
       featured: false
     },
     {
+      id: crypto.randomUUID(),
       title: "Portfolio Pessoal",
       description: "Este portfolio que você está vendo agora! Desenvolvido com React, TypeScript e Tailwind CSS, com foco em performance e experiência do usuário.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dn4te44ha/image/upload/v1755412467/portifolio_qziluc.jpg",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       liveUrl: "#",
       githubUrl: "#",
-      featured: true
+      featured: false
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-secondary/30">
+    <section className="py-20 bg-secondary/30" id="projects">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -50,18 +54,18 @@ const Projects = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Card 
-              key={index} 
               className={`bg-card/50 border-border/50 hover:bg-card/80 transition-smooth hover:shadow-card hover:scale-105 group overflow-hidden ${
                 project.featured ? 'lg:col-span-2' : ''
               }`}
+              key={project.id} 
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-smooth"
+                  src={project.image}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-smooth"></div>
                 
@@ -84,11 +88,11 @@ const Projects = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
+                  {project.technologies.map((tech) => (
                     <Badge 
-                      key={techIndex}
-                      variant="secondary"
                       className="text-xs bg-secondary/50 hover:bg-secondary transition-smooth"
+                      key={tech}
+                      variant="secondary"
                     >
                       {tech}
                     </Badge>
@@ -97,24 +101,24 @@ const Projects = () => {
 
                 <div className="flex gap-3 pt-2">
                   <Button
-                    size="sm"
-                    className="flex-1 gradient-primary shadow-glow hover:scale-105 transition-spring"
                     asChild
+                    className="flex-1 gradient-primary shadow-glow hover:scale-105 transition-spring"
+                    size="sm"
                   >
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={project.liveUrl} rel="noopener noreferrer" target="_blank">
                       <Globe className="h-4 w-4 mr-2" />
                       Ver Projeto
                     </a>
                   </Button>
                   
                   <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
                     asChild
+                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
+                    size="sm"
+                    variant="outline"
                   >
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4" />
+                    <a href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+                      <SiGithub className="h-4 w-4" />
                     </a>
                   </Button>
                 </div>
@@ -125,13 +129,13 @@ const Projects = () => {
 
         <div className="text-center mt-12">
           <Button
-            variant="outline"
-            size="lg"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
             asChild
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
+            size="lg"
+            variant="outline"
           >
-            <a href="https://github.com/joao-victorr" target="_blank" rel="noopener noreferrer">
-              <Github className="h-5 w-5 mr-2" />
+            <a href="https://github.com/joao-victorr" rel="noopener noreferrer" target="_blank">
+              <SiGithub className="h-5 w-5 mr-2" />
               Ver mais no GitHub
               <ExternalLink className="h-4 w-4 ml-2" />
             </a>

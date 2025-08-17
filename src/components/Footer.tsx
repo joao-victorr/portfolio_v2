@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { SiGithub, SiGmail, SiLinkedin, } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -6,17 +6,17 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: <Github className="h-5 w-5" />,
+      icon: <SiGithub className="h-5 w-5" />,
       href: "https://github.com/joao-victorr",
       label: "GitHub"
     },
     {
-      icon: <Linkedin className="h-5 w-5" />,
+      icon: <SiLinkedin className="h-5 w-5" />,
       href: "https://linkedin.com",
       label: "LinkedIn"
     },
     {
-      icon: <Mail className="h-5 w-5" />,
+      icon: <SiGmail className="h-5 w-5" />,
       href: "mailto:joao.victor@email.com",
       label: "Email"
     }
@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo/Name */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold gradient-primary bg-clip-text text-transparent mb-2">
+            <h3 className="text-xl font-bold gradient-primary bg-clip-text mb-2 px-2 rounded-sm">
               João Victor Rodrigues
             </h3>
             <p className="text-sm text-muted-foreground">
@@ -42,14 +42,16 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm">
-            {["Home", "Sobre", "Skills", "Projetos", "Contato"].map((item, index) => (
+            {["Home", "Sobre", "Skills", "Projetos", "Contato"].map((item) => (
               <button
-                key={index}
-                onClick={() => {
+                className="text-muted-foreground hover:text-primary transition-colors"
+                key={item}
+                onClick={(e) => {
                   const element = document.getElementById(item.toLowerCase());
                   element?.scrollIntoView({ behavior: 'smooth' });
+                  e.currentTarget.blur(); // remove o foco após clique para melhorar UX
                 }}
-                className="text-muted-foreground hover:text-primary transition-smooth"
+                type="button"
               >
                 {item}
               </button>
@@ -58,19 +60,19 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="flex gap-3">
-            {socialLinks.map((social, index) => (
+            {socialLinks.map((social) => (
               <Button
-                key={index}
-                variant="ghost"
-                size="icon"
-                className="hover:text-primary hover:scale-110 transition-spring"
                 asChild
+                className="hover:text-primary hover:scale-110 transition-spring"
+                key={social.href}
+                size="icon"
+                variant="ghost"
               >
                 <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   aria-label={social.label}
+                  href={social.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   {social.icon}
                 </a>
@@ -82,15 +84,14 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-border/50 mt-8 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p className="flex items-center gap-1">
-              © {currentYear} João Victor Rodrigues. Feito com 
-              <Heart className="h-4 w-4 text-red-500 fill-current" />
-              usando React & TypeScript
+            <p className="flex items-center gap-2">
+              © {currentYear} João Victor Rodrigues.
             </p>
             
             <button
-              onClick={scrollToTop}
               className="text-primary hover:underline transition-smooth"
+              onClick={scrollToTop}
+              type="button"
             >
               Voltar ao topo ↑
             </button>

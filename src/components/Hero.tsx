@@ -69,7 +69,7 @@ const Hero = () => {
                 size="icon"
                 variant="ghost"
               >
-                <a href="https://github.comjoao-victorr" rel="noopener noreferrer" target="_blank">
+                <a href="https://github.com/joao-victorr" rel="noopener noreferrer" target="_blank">
                   <SiGithub className="h-5 w-5" />
                 </a>
               </Button>

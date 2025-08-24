@@ -3,7 +3,7 @@ import { SiCss3, SiDbeaver, SiDocker, SiExpress, SiFastify,
   SiGit, SiGrafana, SiHtml5, SiJavascript, SiK6, 
   SiLinux, SiMysql,SiNginx,
   SiNodedotjs, SiPostgresql, SiPostman, SiPrisma, SiProxmox, 
-  SiReact, SiTailwindcss,SiTypescript 
+  SiReact, SiTailwindcss,SiTypescript, SiVitest 
 } from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -33,7 +33,7 @@ const Skills = () => {
         { id: crypto.randomUUID(), name: "Prisma ORM", icon: SiPrisma },
         { id: crypto.randomUUID(), name: "PostgreSQL", icon: SiPostgresql },
         { id: crypto.randomUUID(), name: "MySQL", icon: SiMysql },
-        // { id: crypto.randomUUID(), name: "SQL Server", icon: SiMicrosoftsqlserver }
+        { id: crypto.randomUUID(), name: "Vitest", icon: SiVitest }
       ]
     },
     {

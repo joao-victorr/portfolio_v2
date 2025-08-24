@@ -8,12 +8,12 @@ const Projects = () => {
   const projects = [
     {
       id: crypto.randomUUID(),
-      title: "Intranet API",
-      description: "Esta é a solução de gerenciamento que une a nossa intranet e o site institucional. Desenvolvida em Node.js + TypeScript, ela oferece uma plataforma segura e eficiente, com autenticação de usuários para acesso controlado às informações.",
-      image: "https://res.cloudinary.com/dn4te44ha/image/upload/v1755412348/Screenshot_from_2025-08-17_03-05-37_lpbbzo.png",
-      technologies: ["TypeScript", "Docker", "Fastify", "PostgreSQL"],
-      liveUrl: "https://souperdomo.perdomodoces.com.br/api/docs",
-      githubUrl: "https://github.com/joao-victorr/intranetBackend",
+      title: "Perdomo Doces – Site Institucional",
+      description: "Desenvolvimento do site institucional da Perdomo Doces, com design moderno, otimizado e preparado para expansão futura, incluindo área exclusiva para colaboradores.",
+      image: "https://res.cloudinary.com/dn4te44ha/image/upload/v1756005689/c69f7f74-8300-4f15-9eb9-1a6417d9aa93.png",
+      technologies: ["TypeScript", "Docker", "Fastify", "PostgreSQL", "React", "Tailwind"],
+      liveUrl: "https://www.perdomodoces.com.br",
+      githubUrl: "#",
       featured: true
     },
     {
@@ -33,7 +33,7 @@ const Projects = () => {
       image: "https://res.cloudinary.com/dn4te44ha/image/upload/v1755412467/portifolio_qziluc.jpg",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/joao-victorr/portfolio_v2",
       featured: false
     }
   ];
@@ -111,16 +111,18 @@ const Projects = () => {
                     </a>
                   </Button>
                   
-                  <Button
-                    asChild
-                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
-                    size="sm"
-                    variant="outline"
-                  >
-                    <a href={project.githubUrl} rel="noopener noreferrer" target="_blank">
-                      <SiGithub className="h-4 w-4" />
-                    </a>
-                  </Button>
+                  {project.githubUrl !== "#" && (
+                    <Button
+                      asChild
+                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
+                      size="sm"
+                      variant="outline"
+                    >
+                      <a href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+                        <SiGithub className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>

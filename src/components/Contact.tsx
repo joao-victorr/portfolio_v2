@@ -90,9 +90,9 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-1 gap-12">
           {/* Contact Form */}
-          <Card className="bg-card/50 border-border/50 shadow-card">
+          {/* <Card className="bg-card/50 border-border/50 shadow-card">
             <CardHeader>
               <CardTitle className="text-xl font-bold text-foreground">
                 Envie uma mensagem
@@ -151,7 +151,7 @@ const Contact = () => {
                 </Button>
               </form>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Contact Information */}
           <div className="space-y-8">

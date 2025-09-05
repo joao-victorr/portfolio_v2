@@ -230,7 +230,7 @@ const Contact = () => {
                   className="bg-white/20 text-white border-white/30 hover:bg-white/30 transition-smooth"
                   variant="secondary"
                 >
-                  <a href="mailto:joao.victor@email.com">
+                  <a href="mailto:joaovictorr.info@email.com">
                     Vamos conversar!
                   </a>
                 </Button>

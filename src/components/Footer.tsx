@@ -1,3 +1,4 @@
+import { FaFilePdf } from "react-icons/fa";
 import { SiGithub, SiGmail, SiLinkedin, } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
@@ -19,6 +20,11 @@ const Footer = () => {
       icon: <SiGmail className="h-5 w-5" />,
       href: "mailto:joao.victor@email.com",
       label: "Email"
+    },
+    {
+      icon: <FaFilePdf className="h-5 w-5" />,
+      href: "src/assets/Joao_Victor_Curriculo_2025.pdf",
+      label: "Download CV"
     }
   ];
 

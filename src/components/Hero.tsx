@@ -1,4 +1,5 @@
 import { ArrowDown } from "lucide-react";
+import { FaFilePdf } from "react-icons/fa";
 import { SiGithub, SiGmail, SiLinkedin } from "react-icons/si";
 import heroBackground from "@/assets/hero-background.jpg";
 import profilePhoto from "@/assets/joao-victor-photo.jpg";
@@ -89,8 +90,18 @@ const Hero = () => {
                 size="icon"
                 variant="ghost"
               >
-                <a href="mailto:joao@email.com">
+                <a href="mailto:joaovictorr.info@email.com">
                   <SiGmail className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                className="hover:text-primary hover:scale-110 transition-spring"
+                size="icon"
+                variant="ghost"
+              >
+                <a href="src/assets/Joao_Victor_Curriculo_2025.pdf" download="CV_Joao_Victor.pdf" target="_blank" rel="noopener noreferrer">
+                  <FaFilePdf className="h-5 w-5" />
                 </a>
               </Button>
             </div>

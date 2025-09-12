@@ -1,11 +1,12 @@
-import { GitBranch, Globe, Lock, Server } from "lucide-react";
+import { Lock } from "lucide-react";
 import { SiCss3, SiDbeaver, SiDocker, SiExpress, SiFastify, 
-  SiGit, SiGrafana, SiHtml5, SiJavascript, SiK6, 
+  SiGit, SiGrafana, SiHtml5, SiJavascript, SiJira, SiK6, 
   SiLinux, SiMysql,SiNginx,
   SiNodedotjs, SiPostgresql, SiPostman, SiPrisma, SiProxmox, 
   SiReact, SiTailwindcss,SiTypescript, SiVitest 
 } from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
+import { MyGlpiIcon } from "./ui/myIcons";
 
 const Skills = () => {
   const skillCategories = [
@@ -54,6 +55,7 @@ const Skills = () => {
       title: "Ferramentas",
       description: "Tecnologias que otimizam meu workflow",
       skills: [
+        { id: crypto.randomUUID(), name: "Jira", icon: SiJira },
         { id: crypto.randomUUID(), name: "Git", icon: SiGit },
         { id: crypto.randomUUID(), name: "Grafana", icon: SiGrafana },
         { id: crypto.randomUUID(), name: "Postman", icon: SiPostman },

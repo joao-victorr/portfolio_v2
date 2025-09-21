@@ -1,9 +1,9 @@
 import { ArrowDown } from "lucide-react";
 import { FaFilePdf } from "react-icons/fa";
 import { SiGithub, SiGmail, SiLinkedin } from "react-icons/si";
-import heroBackground from "@/assets/hero-background.jpg";
-import profilePhoto from "@/assets/joao-victor-photo.jpg";
+// import profilePhoto from "@/assets/joao-victor-photo.jpg";
 import { Button } from "@/components/ui/button";
+import heroBackground from "../../public/hero-background.jpg";
 
 const Hero = () => {
   const scrollToAbout = () => {

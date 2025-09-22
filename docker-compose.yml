@@ -4,6 +4,6 @@ services:
     build:
       context: ./front   # <- ajuste para o diretório onde está seu front
       dockerfile: Dockerfile
-    ports:
-      - "127.0.0.1:10080:80"        # acessa o front em http://localhost:8080# Monta o diretório do front no container para desenvolvimento    
+    port:
+      - "3080:80"
     restart: unless-stopped # Política de reinício para produção

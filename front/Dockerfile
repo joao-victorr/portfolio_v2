@@ -1,32 +1,32 @@
-# STAGE 1: Build the React application
-# Use a lightweight Node.js image for the build stage
-FROM node:24-alpine AS builder
+# Etapa 1 - Build do front
+FROM node:lts-alpine AS build
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json and install dependencies
-COPY package*.json ./
-RUN npm install
+# Copia os arquivos de dependências primeiro (melhora cache)
+COPY package.json package-lock.json ./
+RUN npm i
 
-# Copy the rest of the application source code
+
+# Copia o restante do código
 COPY . .
 
-# Build the React application for production
+# Gera o build (React: npm run build, Vue: npm run build, Angular: npm run build)
 RUN npm run build
 
-# STAGE 2: Serve the application with NGINX
-# Use a lean NGINX image
+# Etapa 2 - Servir com Nginx
 FROM nginx:alpine
 
-# Copy the custom NGINX configuration
+# Remove config default do Nginx
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copia o build gerado na etapa anterior para a pasta padrão do Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copia config customizada
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the built files from the 'builder' stage into the NGINX web server root
-COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Expose port 80 to the outside world
 EXPOSE 80
 
-# The default command to start NGINX
 CMD ["nginx", "-g", "daemon off;"]

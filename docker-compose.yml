@@ -4,6 +4,6 @@ services:
     build:
       context: ./front   # <- ajuste para o diretório onde está seu front
       dockerfile: Dockerfile
-    port:
+    ports:
       - "3080:80"
     restart: unless-stopped # Política de reinício para produção

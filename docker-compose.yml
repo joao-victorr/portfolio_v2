@@ -2,8 +2,20 @@ services:
   portfolio-front:
     container_name: portfolio-front
     build:
-      context: ./front   # <- ajuste para o diretório onde está seu front
+      context: ./front
       dockerfile: Dockerfile
+    env_file:
+      - .front.env
     ports:
-      - "3080:80"
-    restart: unless-stopped # Política de reinício para produção
+      - "127.0.0.1:3080:80"
+    restart: unless-stopped
+    networks:
+      - portfolio-network
+      - proxy-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+    name: portfolio-network
+  proxy-network:
+    external: true

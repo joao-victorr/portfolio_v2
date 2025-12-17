@@ -22,7 +22,7 @@ const Hero = () => {
       }}
     >
       <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left side - Text content */}
@@ -38,25 +38,25 @@ const Hero = () => {
                 <span className="text-foreground">Rodrigues</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl animate-fade-in-up animation-delay-200">
-                Desenvolvedor FullStack apaixonado por tecnologia, criando soluções 
+                Desenvolvedor FullStack apaixonado por tecnologia, criando soluções
                 digitais inovadoras e experiências web excepcionais.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up animation-delay-400">
-              <Button 
+              <Button
                 className="gradient-primary shadow-glow hover:scale-105 transition-spring"
                 onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-                size="lg" 
+                size="lg"
               >
                 Ver Projetos
               </Button>
-              <Button 
+              <Button
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 size="lg"
-                variant="outline" 
+                variant="outline"
               >
                 Entre em Contato
               </Button>
@@ -100,7 +100,7 @@ const Hero = () => {
                 size="icon"
                 variant="ghost"
               >
-                <a href="src/assets/Joao_Victor_Curriculo_2025.pdf" download="CV_Joao_Victor.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="Joao_Victor_Curriculo_2025.pdf" download="Curriculo_Joao_Victor.pdf" target="_blank" rel="noopener noreferrer">
                   <FaFilePdf className="h-5 w-5" />
                 </a>
               </Button>

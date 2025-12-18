@@ -1,0 +1,17 @@
+services:
+  portfolio-front:
+    image: ghcr.io/${{ github.repository_owner }}/portfolio-front:latest
+    container_name: portfolio-front
+    restart: unless-stopped
+    env_file:
+      - .front.env
+    networks:
+      - portfolio-network
+      - proxy-network
+
+networks:
+  portfolio-network:
+    name: portfolio-network
+    driver: bridge
+  proxy-network:
+    external: true

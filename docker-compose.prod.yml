@@ -1,6 +1,6 @@
 services:
   portfolio-front:
-    image: ghcr.io/${REPO_OWNER}/portfolio-front:latest
+    image: ghcr.io/${REPO_OWNER}/portfolio_v2/portfolio-front:latest
     container_name: portfolio-front
     restart: unless-stopped
     env_file:

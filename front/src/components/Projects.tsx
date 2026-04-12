@@ -12,7 +12,7 @@ const Projects = () => {
       description: "Desenvolvimento do site institucional da Perdomo Doces, com design moderno, otimizado e preparado para expansão futura, incluindo área exclusiva para colaboradores.",
       image: "https://res.cloudinary.com/dn4te44ha/image/upload/v1756005689/c69f7f74-8300-4f15-9eb9-1a6417d9aa93.png",
       technologies: ["TypeScript", "Docker", "Fastify", "PostgreSQL", "React", "Tailwind"],
-      liveUrl: "https://www.perdomodoces.com.br",
+      liveUrl: "https://perdomodoces.com.br",
       githubUrl: "#",
       featured: true
     },

@@ -10,7 +10,7 @@ services:
       - proxy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio.rule=Host(`portfolio.joaovictorr.dev`)"
+      - "traefik.http.routers.portfolio.rule=Host(`${LETSENCRYPT_HOST}`)"
       - "traefik.http.routers.portfolio.entrypoints=websecure"
       - "traefik.http.routers.portfolio.tls.certresolver=myresolver"
       - "traefik.http.services.portfolio.loadbalancer.server.port=80"

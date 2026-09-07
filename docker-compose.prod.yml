@@ -8,6 +8,13 @@ services:
     networks:
       - portfolio-network
       - proxy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.power-viewer.rule=Host(`portfolio.joaovictorr.dev`)"
+      - "traefik.http.routers.power-viewer.entrypoints=websecure"
+      - "traefik.http.routers.power-viewer.tls.certresolver=myresolver"
+      - "traefik.http.services.power-viewer.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy-network"
 
 networks:
   portfolio-network:

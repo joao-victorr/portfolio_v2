@@ -3,10 +3,10 @@ import { SiCss3, SiDbeaver, SiDocker, SiExpress, SiFastify,
   SiGit, SiGrafana, SiHtml5, SiJavascript, SiJira, SiK6, 
   SiLinux, SiMysql,SiNginx,
   SiNodedotjs, SiPostgresql, SiPostman, SiPrisma, SiProxmox, 
-  SiReact, SiTailwindcss,SiTypescript, SiVitest 
+  SiReact, SiTailwindcss,SiTypescript, SiVitest
 } from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
-import { MyGlpiIcon } from "./ui/myIcons";
+import { MyGlpiIcon, MyZabbixIcon } from "./ui/myIcons";
 
 const Skills = () => {
   const skillCategories = [
@@ -42,8 +42,7 @@ const Skills = () => {
       title: "Infraestrutura",
       description: "Gestão completa de servidores e ambientes",
       skills: [
-        { id: crypto.randomUUID(), name: "Linux Server", icon: SiLinux },
-        // { id: crypto.randomUUID(), name: "Windows Server", icon: SiWindows },
+        { id: crypto.randomUUID(), name: "Linux Server", icon: SiLinux }, 
         { id: crypto.randomUUID(), name: "Docker", icon: SiDocker },
         { id: crypto.randomUUID(), name: "Proxmox", icon: SiProxmox },
         { id: crypto.randomUUID(), name: "Nginx", icon: SiNginx },
@@ -57,6 +56,8 @@ const Skills = () => {
       skills: [
         { id: crypto.randomUUID(), name: "Jira", icon: SiJira },
         { id: crypto.randomUUID(), name: "Git", icon: SiGit },
+        { id: crypto.randomUUID(), name: "Zabbix", icon: MyZabbixIcon },
+        { id: crypto.randomUUID(), name: "Glpi", icon: MyGlpiIcon },
         { id: crypto.randomUUID(), name: "Grafana", icon: SiGrafana },
         { id: crypto.randomUUID(), name: "Postman", icon: SiPostman },
         { id: crypto.randomUUID(), name: "DBeaver", icon: SiDbeaver },
